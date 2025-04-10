@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCI LRT JABODEBEK NETWORK MONITORING DASHBOARD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-gray-800 p-4 shadow-lg relative flex justify-center items-center">
+          <img src="images/restek.png" alt="Logo" class="h-10 w-50 absolute left-10">
+            <h1 class="text-xl font-semibold">TCI LRT JABODEBEK NETWORK MONITORING DASHBOARD</h1>
+        </header>
+        
+        <!-- Main Content -->
+        <div class="flex flex-wrap p-6 gap-6 justify-center">
+            <!-- Network Device Status Box -->
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.251">
+              <i data-feather="hard-drive" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">SIP Server MC1</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.251</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.252">
+              <i data-feather="hard-drive" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">SIP Server MC2</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address : 192.168.2.252</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.241">
+              <i data-feather="radio" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">TCI BOX MC1</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.241</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.242">
+              <i data-feather="radio" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">TCI BOX MC2</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.242</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.37">
+              <i data-feather="phone-call" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">PECU Master MC1</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.37</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.38">
+              <i data-feather="phone-call" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">PECU Master MC2</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.38</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.31">
+              <i data-feather="smartphone" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">PECU Client MC1</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+             <p class="mt-2 text-gray-400">IP Address: 192.168.2.31</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.32">
+              <i data-feather="smartphone" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">PECU Client M1</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+             <p class="mt-2 text-gray-400">IP Address: 192.168.2.32</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.33">
+              <i data-feather="smartphone" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">PECU Client T1</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.33</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.34">
+              <i data-feather="smartphone" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">PECU Client T2</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.34</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.9">
+              <i data-feather="smartphone" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">PECU Client M2</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.9</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.36">
+              <i data-feather="smartphone" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">PECU Client MC2</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.36</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.21">
+              <i data-feather="volume-2" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">Amplifier MC1</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.21</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.22">
+              <i data-feather="volume-2" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">Amplifier M1</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.22</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.23">
+              <i data-feather="volume-2" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">Amplifier T1</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.23</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.24">
+              <i data-feather="volume-2" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">Amplifier T2</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.24</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.25">
+              <i data-feather="volume-2" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">Amplifier M2</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.25</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-72" data-ip="192.168.2.26">
+              <i data-feather="volume-2" class="w-10 h-10 text-white-400"></i>
+              <h2 class="text-lg font-semibold">Amplifier MC2</h2>
+              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2s.26</p>
+              <p class="mt-2 text-gray-400">Port : 3000</p>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 p-4 text-center mt-auto">
+            <p class="text-gray-400">&copy; 2025 RITS Network Monitoring. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+      feather.replace();     
+
+      function checkStatus(ip, element) {
+      fetch(`http://${ip}`, { mode: 'no-cors', cache: 'no-store' })
+          .then(() => {
+              element.textContent = "Online";
+              element.classList.remove("text-gray-400", "text-red-400");
+              element.classList.add("text-green-400");
+          })
+          .catch(() => {
+              element.textContent = "Offline";
+              element.classList.remove("text-gray-400", "text-green-400");
+              element.classList.add("text-red-400");
+          });
+  }
+
+  function updateStatuses() {
+      document.querySelectorAll("[data-ip]").forEach(box => {
+          const ip = box.getAttribute("data-ip");
+          const statusElement = box.querySelector(".status");
+          checkStatus(ip, statusElement);
+      });
+  }
+
+  updateStatuses();
+  setInterval(updateStatuses, 10000); // Cek status setiap 10 detik
+  </script>
+</body>
+</html>
