@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCI LRT JABODEBEK NETWORK MONITORING DASHBOARD</title>
+    <link rel="icon" href="images/title_logo2.jpg" type="image/x-icons">
+    <title>RITS NETWORK MONITORING DASHBOARD</title>
+    <script defer src="script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  </head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
 <body class="bg-gray-900 text-white">
   <div class="min-h-screen flex">
     <!-- Sidebar -->
@@ -18,7 +20,7 @@
         <h2 class="text-xl font-semibold mb-4 text-center" style="font-family: 'Poppins', serif;">DASHBOARD</h2>
         <ul>
             <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
-                <a href="index.html" class="absolute inset-0 flex items-center justify-left p-5">TCI Monitoring</a>
+                <a href="index.html" class="absolute inset-0 flex items-center justify-left p-5">PIDS Comm Monitoring</a>
             </li>
             <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
                 <a href="cctv.html" class="absolute inset-0 flex items-center justify-left p-5">CCTV Monitoring</a>
@@ -27,7 +29,7 @@
                 <a href="display.html" class="absolute inset-0 flex items-center justify-left p-5">LCD Display Monitoring</a>
             </li>
             <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
-                <a href="#.html" class="absolute inset-0 flex items-center justify-left p-5">-</a>
+              <a href="runningtext.html" class="absolute inset-0 flex items-center justify-left p-5">Running Text Monitoring</a>
             </li>
             <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
                 <a href="#.html" class="absolute inset-0 flex items-center justify-left p-5">-</a>
@@ -53,95 +55,95 @@
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.81">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display MC1 <br>Pintu 4</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.81</p>
+              <p class="mt-2">Status: <span id="lcd-81" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.81</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.82">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display MC1 <br>Pintu 3</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.82</p>
+              <p class="mt-2">Status: <span id="lcd-82" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.82</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.83">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display M1 <br>Pintu 4</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.83</p>
+              <p class="mt-2">Status: <span id="lcd-83" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.83</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.84">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display M1 <br>Pintu 3</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.84</p>
+              <p class="mt-2">Status: <span id="lcd-84" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.84</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.85">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display T1 <br>Pintu 4</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.85</p>
+              <p class="mt-2">Status: <span id="lcd-85" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.85</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.86">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display T1 <br>Pintu 3</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.86</p>
+              <p class="mt-2">Status: <span id="lcd-86" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.86</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.87">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display T2 <br>Pintu 3</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.87</p>
+              <p class="mt-2">Status: <span id="lcd-87" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.87</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.88">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display T2 <br>Pintu 4</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.88</p>
+              <p class="mt-2">Status: <span id="lcd-88" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.88</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.89">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display M2 <br>Pintu 3</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.89</p>
+              <p class="mt-2">Status: <span id="lcd-89" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.89</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.90">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display M2 <br>Pintu 4</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.90</p>
+              <p class="mt-2">Status: <span id="lcd-90" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.90</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.91">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display MC2 <br>Pintu 3</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.91</p>
+              <p class="mt-2">Status: <span id="lcd-91" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.91</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[236px]" data-ip="192.168.29.92">
               <i data-feather="monitor" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">LCD Display MC2 <br>Pintu 4</h2>
-              <p class="mt-2">Status: <span class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.29.92</p>
+              <p class="mt-2">Status: <span id="lcd-92" class="status text-gray-400">Checking...</span></p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.2.92</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -157,34 +159,5 @@
             <p class="text-gray-400">&copy; 2025 RITS Network Monitoring. All rights reserved.</p>
         </footer>
     </div>
-
-    <script>
-      feather.replace();     
-
-      function checkStatus(ip, element) {
-      fetch(`http://${ip}`, { mode: 'no-cors', cache: 'no-store' })
-          .then(() => {
-              element.textContent = "Online";
-              element.classList.remove("text-gray-400", "text-red-400");
-              element.classList.add("text-green-400");
-          })
-          .catch(() => {
-              element.textContent = "Offline";
-              element.classList.remove("text-gray-400", "text-green-400");
-              element.classList.add("text-red-400");
-          });
-  }
-
-  function updateStatuses() {
-      document.querySelectorAll("[data-ip]").forEach(box => {
-          const ip = box.getAttribute("data-ip");
-          const statusElement = box.querySelector(".status");
-          checkStatus(ip, statusElement);
-      });
-  }
-
-  updateStatuses();
-  setInterval(updateStatuses, 1000000); // Cek status setiap 10 jam
-  </script>
 </body>
 </html>
