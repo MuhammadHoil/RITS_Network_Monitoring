@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script defer src="script.js"></script>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="mqtt-client.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -15,12 +17,16 @@
 <body class="bg-gray-900 text-white">
   <div class="min-h-screen flex">
     <!-- Sidebar -->
-    <aside class="bg-gray-800 w-72 p-6 shadow-lg transition-all duration-300 hover:w-72">
+    <aside class="bg-gray-800 w-72 p-6 shadow-lg transition-all duration-300 hover:w-72 flex flex-col">
         <img src="images/restek.png" alt="Logo" class="h-[35px] w-[180px] mb-4 mx-auto">
         <h2 class="text-xl font-semibold mb-4 text-center" style="font-family: 'Poppins', serif;">DASHBOARD</h2>
+        <div class="flex flex-col h-full justify-between">
         <ul>
             <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
-                <a href="index.html" class="absolute inset-0 flex items-center justify-left p-5">PIDS Comm Monitoring</a>
+                <a href="index.html" class="absolute inset-0 flex items-center justify-left p-5">Main System Monitoring</a>
+            </li>
+            <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
+                <a href="comm.html" class="absolute inset-0 flex items-center justify-left p-5">PIDS Comm Monitoring</a>
             </li>
             <li class="mb-4 p-5 rounded-lg bg-blue-900 hover:bg-blue-300 cursor-pointer transition-all relative">
                 <a href="cctv.html" class="absolute inset-0 flex items-center justify-left p-5">CCTV Monitoring</a>
@@ -31,14 +37,13 @@
             <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
                 <a href="runningtext.html" class="absolute inset-0 flex items-center justify-left p-5">Running Text Monitoring</a>
             </li>
-            <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
-                <a href="#.html" class="absolute inset-0 flex items-center justify-left p-5">-</a>
-            </li>
+        </ul>
+        <ul>
             <li class="mt-[400px] mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
                 <a href="#.html" class="absolute inset-0 flex items-center justify-left p-5">-</a>
             </li>
-            <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
-                <a href="#.html" class="absolute inset-0 flex items-center justify-left p-5">Version</a>
+            <li class="mb-9 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
+                <a href="version.html" class="absolute inset-0 flex items-center justify-left p-5">Version</a>
             </li>
         </ul>
     </aside>
@@ -56,7 +61,7 @@
               <i data-feather="video" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">CCTV MC1 CAM-1</h2>
               <p class="mt-2">Status: <span id="cctv-101" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.101</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.101</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -64,7 +69,7 @@
               <i data-feather="video" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">CCTV MC1 CAM-2</h2>
               <p class="mt-2">Status: <span id="cctv-102" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.102</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.102</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -72,7 +77,7 @@
               <i data-feather="video" class="w-10 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">CCTV M1 CAM-1</h2>
               <p class="mt-2">Status: <span id="cctv-103" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.103</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.103</p>
               <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -80,7 +85,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV M1 CAM-2</h2>
                 <p class="mt-2">Status: <span id="cctv-104" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.104</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.104</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -88,7 +93,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV T1 CAM-1</h2>
                 <p class="mt-2">Status: <span id="cctv-105" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.105</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.105</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -96,7 +101,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV T1 CAM-2</h2>
                 <p class="mt-2">Status: <span id="cctv-106" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.106</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.106</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -104,7 +109,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV T2 CAM-1</h2>
                 <p class="mt-2">Status: <span id="cctv-107" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.107</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.107</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -112,7 +117,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV T2 CAM-2</h2>
                 <p class="mt-2">Status: <span id="cctv-108" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.108</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.108</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -120,7 +125,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV M2 CAM-1</h2>
                 <p class="mt-2">Status: <span id="cctv-109" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.109</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.109</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -128,7 +133,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV M2 CAM-2</h2>
                 <p class="mt-2">Status: <span id="cctv-110" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.110</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.110</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -136,7 +141,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV MC2 CAM-1</h2>
                 <p class="mt-2">Status: <span id="cctv-111" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.111</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.111</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -144,7 +149,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV MC2 CAM-2</h2>
                 <p class="mt-2">Status: <span id="cctv-112" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.112</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.112</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -152,7 +157,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV MC1 CABIN</h2>
                 <p class="mt-2">Status: <span id="cctv-151" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.151</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.151</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 
@@ -160,7 +165,7 @@
                 <i data-feather="video" class="w-10 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">CCTV MC2 CABIN</h2>
                 <p class="mt-2">Status: <span id="cctv-156" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.156</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.156</p>
                 <p class="mt-2 text-gray-400">Port : 3000</p>
             </div>
 

@@ -6,6 +6,8 @@
     <link rel="icon" href="images/title_logo2.jpg" type="image/x-icons">
     <title>RITS NETWORK MONITORING DASHBOARD</title>
     <script defer src="script.js"></script>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="mqtt-client.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +17,16 @@
 <body class="bg-gray-900 text-white">
   <div class="min-h-screen flex">
     <!-- Sidebar -->
-    <aside class="bg-gray-800 w-72 p-6 shadow-lg transition-all duration-300 hover:w-72">
-        <img src="images/restek.png" alt="Logo" class="h-[35px] w-[180px] mb-4 mx-auto">
-        <h2 class="text-xl font-semibold mb-4 text-center" style="font-family: 'Poppins', serif;">DASHBOARD</h2>
-            <ul>
+    <aside class="bg-gray-800 w-72 p-6 shadow-lg transition-all duration-300 hover:w-72 flex flex-col">
+      <img src="images/restek.png" alt="Logo" class="h-[35px] w-[180px] mb-4 mx-auto">
+      <h2 class="text-xl font-semibold mb-4 text-center" style="font-family: 'Poppins', serif;">DASHBOARD</h2>
+      <div class="flex flex-col h-full justify-between">
+          <ul>
               <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
-                  <a href="index.html" class="absolute inset-0 flex items-center justify-left p-5">PIDS Comm Monitoring</a>
+                  <a href="index.html" class="absolute inset-0 flex items-center justify-left p-5">Main System Monitoring</a>
+              </li>
+              <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
+                  <a href="comm.html" class="absolute inset-0 flex items-center justify-left p-5">PIDS Comm Monitoring</a>
               </li>
               <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
                   <a href="cctv.html" class="absolute inset-0 flex items-center justify-left p-5">CCTV Monitoring</a>
@@ -31,14 +37,13 @@
               <li class="mb-4 p-5 rounded-lg bg-blue-900 hover:bg-blue-300 cursor-pointer transition-all relative">
                   <a href="runningtext.html" class="absolute inset-0 flex items-center justify-left p-5">Running Text Monitoring</a>
               </li>
-              <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
-                  <a href="#.html" class="absolute inset-0 flex items-center justify-left p-5">-</a>
-              </li>
+          </ul>
+          <ul>
               <li class="mt-[400px] mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
                 <a href="#.html" class="absolute inset-0 flex items-center justify-left p-5">-</a>
               </li>
-              <li class="mb-4 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
-                <a href="#.html" class="absolute inset-0 flex items-center justify-left p-5">Version</a>
+              <li class="mb-9 p-5 rounded-lg bg-gray-500 hover:bg-blue-300 cursor-pointer transition-all relative">
+                <a href="version.html" class="absolute inset-0 flex items-center justify-left p-5">Version</a>
               </li>
           </ul>
     </aside>
@@ -56,168 +61,168 @@
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>MC1 Pintu 1</h2>
               <p class="mt-2">Status: <span id="rtx-52" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.52</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.52</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.252">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>MC1 Pintu 2</h2>
               <p class="mt-2">Status: <span id="rtx-51" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.51</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.51</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.241">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>MC1 Pintu 5</h2>
               <p class="mt-2">Status: <span id="rtx-54" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.54</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.54</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.242">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>MC1 Pintu 6</h2>
               <p class="mt-2">Status: <span id="rtx-53" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.53</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.53</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.251">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>M1 Pintu 1</h2>
               <p class="mt-2">Status: <span id="rtx-56" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.56</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.56</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.252">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>M1 Pintu 2</h2>
               <p class="mt-2">Status: <span id="rtx-55" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.55</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.55</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.241">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>M1 Pintu 5</h2>
               <p class="mt-2">Status: <span id="rtx-58" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.58</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.58</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.242">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>M1 Pintu 6</h2>
               <p class="mt-2">Status: <span id="rtx-57" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.57</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.57</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.251">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>T1 Pintu 1</h2>
               <p class="mt-2">Status: <span id="rtx-60" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.60</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.60</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.252">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>T1 Pintu 2</h2>
               <p class="mt-2">Status: <span id="rtx-59" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.59</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.59</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.241">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>T1 Pintu 5</h2>
               <p class="mt-2">Status: <span id="rtx-62" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.62</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.62</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.242">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>T1 Pintu 6</h2>
               <p class="mt-2">Status: <span id="rtx-61" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.61</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.61</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.251">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>T2 Pintu 5</h2>
               <p class="mt-2">Status: <span id="rtx-63" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.63</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.63</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.252">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>T2 Pintu 6</h2>
               <p class="mt-2">Status: <span id="rtx-64" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.64</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.64</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.241">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>T2 Pintu 1</h2>
               <p class="mt-2">Status: <span id="rtx-65" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.65</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.65</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.242">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>T2 Pintu 2</h2>
               <p class="mt-2">Status: <span id="rtx-66" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.66</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.66</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.251">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>M2 Pintu 5</h2>
               <p class="mt-2">Status: <span id="rtx-67" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.67</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.67</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.252">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>M2 Pintu 6</h2>
               <p class="mt-2">Status: <span id="rtx-68" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.68</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.68</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.241">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>M2 Pintu 1</h2>
               <p class="mt-2">Status: <span id="rtx-69" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.69</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.69</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.242">
               <i data-feather="type" class="w-8 h-10 text-white-400"></i>
               <h2 class="text-lg font-semibold">Running Text<br>M2 Pintu 2</h2>
               <p class="mt-2">Status: <span id="rtx-70" class="status text-gray-400">Checking...</span></p>
-              <p class="mt-2 text-gray-400">IP Address: 192.168.2.70</p>
+              <p class="mt-2 text-gray-400">IP Address: 192.168.11.70</p>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.251">
                 <i data-feather="type" class="w-8 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">Running Text<br>MC2 Pintu 5</h2>
                 <p class="mt-2">Status: <span id="rtx-71" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.71</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.71</p>
               </div>
   
               <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.252">
                 <i data-feather="type" class="w-8 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">Running Text<br>MC2 Pintu 6</h2>
                 <p class="mt-2">Status: <span id="rtx-72" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.72</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.72</p>
               </div>
   
               <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.241">
                 <i data-feather="type" class="w-8 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">Running Text<br>MC2 Pintu 1</h2>
                 <p class="mt-2">Status: <span id="rtx-73" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.73</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.73</p>
               </div>
   
               <div class="bg-gray-800 p-6 rounded-2xl shadow-lg w-[180px]" data-ip="192.168.29.242">
                 <i data-feather="type" class="w-8 h-10 text-white-400"></i>
                 <h2 class="text-lg font-semibold">Running Text<br>MC2 Pintu 2</h2>
                 <p class="mt-2">Status: <span id="rtx-74" class="status text-gray-400">Checking...</span></p>
-                <p class="mt-2 text-gray-400">IP Address: 192.168.2.74</p>
+                <p class="mt-2 text-gray-400">IP Address: 192.168.11.74</p>
               </div>
 
             

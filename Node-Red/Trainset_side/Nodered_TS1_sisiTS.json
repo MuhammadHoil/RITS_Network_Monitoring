@@ -1,0 +1,42 @@
+[
+    {
+        "id": "c8ebaf3f19674312",
+        "type": "inject",
+        "z": "57e24c5f22dbbf53",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 330,
+        "y": 3140,
+        "wires": [
+            [
+                "215aa1ac4d2ea062",
+                "5ac0da664d6fc971",
+                "d909f4cea3ef33f7",
+                "bfe94d39eab24eb1",
+                "e6fe97744f51a417",
+                "9a6486f9db91c915",
+                "1438a20228a0ef85",
+                "227c479d0429e7af",
+                "f4fc958cbc5e8dc4",
+                "127e7aef3474a963",
+                "c217cee8e83f6abc",
+                "4491c41643d9725c"
+            ]
+        ]
+    }
+]
